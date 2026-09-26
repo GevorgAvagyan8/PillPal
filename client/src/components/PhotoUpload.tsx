@@ -25,7 +25,7 @@ export function PhotoUpload({ onSubmit }: PhotoUploadProps) {
   return (
     <div className="photo-upload">
       <header className="app-header">
-        <Camera size={32} weight="regular" aria-hidden="true" />
+        <img src="/logo-mascot.png" alt="" className="app-header__logo" />
         <h1>PillPal</h1>
       </header>
       <p className="subtitle">

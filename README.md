@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="client/public/pillpal-logo-full.png" alt="PillPal — Every pill, explained." width="240" />
+</p>
+
 # PillPal
 Snap a photo of a prescription bottle to get plain-language instructions, a daily dose schedule, side effects, and interaction warnings sourced from official FDA drug labels. Built at TigerHacks 2026 (Mizzou).
 
