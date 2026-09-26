@@ -1,0 +1,4 @@
+Seam for the future translated-audio (TTS) phase.
+It will consume plainLanguage.summary from extractionPipeline.ts plus a target
+language, and fill in the `audio` field of ExtractionResponse (currently
+always null).

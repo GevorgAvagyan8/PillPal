@@ -1,0 +1,3 @@
+Seam for the future pictogram schedule phase.
+It will consume extracted.frequency.structured from extractionPipeline.ts and
+fill in the `pictogram` field of ExtractionResponse (currently always null).
