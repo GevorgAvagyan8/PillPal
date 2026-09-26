@@ -304,6 +304,72 @@ button:disabled {
   margin-bottom: 0.4rem;
 }
 
+/* Interaction info (openFDA/RxNorm lookup) */
+
+.interaction-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.interaction-info--status {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem;
+  color: var(--color-muted-foreground);
+  font-size: 0.95rem;
+}
+
+.interaction-info__boxed-warning {
+  display: flex;
+  gap: 0.75rem;
+  background: #fef2f2;
+  border: 1.5px solid var(--color-destructive);
+  border-radius: 12px;
+  padding: 1rem;
+  color: var(--color-destructive);
+}
+
+.interaction-info__boxed-warning strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.interaction-info__boxed-warning ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.interaction-info__section {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.1rem;
+}
+
+.interaction-info__section h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--color-foreground);
+}
+
+.interaction-info__section ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.interaction-info__section li {
+  margin-bottom: 0.4rem;
+}
+
+.interaction-info__source {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted-foreground);
+}
+
 /* Confirmation panel */
 
 .confirmation-panel h2 {

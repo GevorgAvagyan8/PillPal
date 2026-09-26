@@ -23,13 +23,27 @@ export interface ExtractedMedication {
   quantity: { count: number | null; raw: string | null };
 }
 
+export type DrugLookupStatus = "matched" | "no_rxnorm_match" | "no_fda_label_match" | "lookup_failed";
+
+export interface DrugInteractionInfo {
+  source: "openFDA";
+  lookupStatus: DrugLookupStatus;
+  rxcui: string | null;
+  matchedBrandName: string | null;
+  matchedGenericName: string | null;
+  boxedWarning: string[];
+  drugInteractions: string[];
+  warnings: string[];
+  contraindications: string[];
+}
+
 export interface ExtractionResponse {
   id: string;
   extracted: ExtractedMedication;
   plainLanguage: { summary: string; warnings: string[] };
   needsReview: boolean;
   reviewReasons: string[];
-  interactions: null;
+  interactions: DrugInteractionInfo | null;
   pictogram: null;
   audio: null;
   createdAt: string;

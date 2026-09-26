@@ -1,6 +1,7 @@
 import { Warning } from "@phosphor-icons/react";
 import type { ExtractionResponse } from "../types/extraction";
 import { ConfirmationPanel } from "./ConfirmationPanel";
+import { InteractionInfo } from "./InteractionInfo";
 import { LowConfidenceBanner } from "./LowConfidenceBanner";
 
 interface ResultsViewProps {
@@ -29,6 +30,8 @@ export function ResultsView({ data, onStartOver }: ResultsViewProps) {
           </ul>
         </div>
       )}
+
+      <InteractionInfo data={data.interactions} />
 
       <ConfirmationPanel extracted={data.extracted} />
 

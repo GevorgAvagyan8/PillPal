@@ -1,4 +1,5 @@
 import type { ExtractedMedication } from "../services/vision/visionExtraction.types";
+import type { DrugInteractionInfo } from "../services/drugLookup/drugLookup.types";
 
 export interface PlainLanguageSummary {
   summary: string;
@@ -13,7 +14,9 @@ export interface ExtractionResponse {
   plainLanguage: PlainLanguageSummary;
   needsReview: boolean;
   reviewReasons: string[];
-  interactions: null; // seam: future openFDA/RxNorm phase fills this in
+  // null only when skipped because drugName confidence was too low to
+  // safely look up — see LOW_CONFIDENCE_THRESHOLD in extractionPipeline.ts.
+  interactions: DrugInteractionInfo | null;
   pictogram: null; // seam: future pictogram phase fills this in
   audio: null; // seam: future TTS phase fills this in
   createdAt: string;

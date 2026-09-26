@@ -1,3 +1,0 @@
-Seam for the future openFDA/RxNorm interaction-check phase.
-It will consume extracted.drugName.normalized from extractionPipeline.ts and
-fill in the `interactions` field of ExtractionResponse (currently always null).

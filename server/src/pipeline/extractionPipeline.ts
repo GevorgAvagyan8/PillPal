@@ -1,4 +1,5 @@
 import { randomUUID } from "crypto";
+import { lookupDrugInteractions } from "../services/drugLookup/drugLookup";
 import { getVisionExtractionService } from "../services/vision/visionExtraction";
 import type { ExtractedMedication, ExtractionScenario } from "../services/vision/visionExtraction.types";
 import type { ExtractionResponse, PlainLanguageSummary } from "../types/extraction";
@@ -38,13 +39,20 @@ export async function runExtractionPipeline(
   const plainLanguage = buildPlainLanguageSummary(extracted);
   const { needsReview, reviewReasons } = assessReview(extracted);
 
+  // Skip the lookup entirely on a garbled drug name rather than risk
+  // attaching a different drug's FDA label/interaction data.
+  const interactions =
+    extracted.drugName.confidence >= LOW_CONFIDENCE_THRESHOLD
+      ? await lookupDrugInteractions(extracted.drugName)
+      : null;
+
   return {
     id: randomUUID(),
     extracted,
     plainLanguage,
     needsReview,
     reviewReasons,
-    interactions: null,
+    interactions,
     pictogram: null,
     audio: null,
     createdAt: new Date().toISOString(),
